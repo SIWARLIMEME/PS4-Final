@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDoc Analyzer - Assistant Technique</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">SmartDoc Analyzer</h1>
+                <button id="new-chat-btn" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Nouvelle conversation
+                </button>
+            </div>
+            
+            <div class="documents-section">
+                <h2>Documents</h2>
+                <div class="upload-container">
+                    <label for="file-upload" class="btn btn-outline">
+                        <i class="fas fa-upload"></i> Importer un document
+                    </label>
+                    <input type="file" id="file-upload" accept=".pdf,.docx,.pptx" style="display: none;">
+                </div>
+                
+                <div id="documents-list" class="documents-list">
+                    <!-- Les documents seront chargés dynamiquement ici -->
+                </div>
+            </div>
+            
+            <div class="conversations-section">
+                <h2>Conversations récentes</h2>
+                <div id="conversations-list" class="conversations-list">
+                    <!-- Les conversations seront chargées dynamiquement ici -->
+                </div>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <div class="header">
+                <div id="current-document" class="current-document"></div>
+            </div>
+            
+            <div id="chat-container" class="chat-container">
+                <div class="welcome-screen" id="welcome-screen">
+                    <h2>Bienvenue sur SmartDoc Analyzer</h2>
+                    <p>Importez un document technique et posez-moi des questions à son sujet.</p>
+                    <p>Je suis spécialisé dans les manuels techniques, guides d'utilisation, et documentations de produits.</p>
+                    <div class="examples">
+                        <h3>Exemples de questions:</h3>
+                        <ul>
+                            <li>Comment configurer le routeur XYZ?</li>
+                            <li>Quelles sont les spécifications de la machine ABC?</li>
+                            <li>Expliquez-moi la procédure de maintenance.</li>
+                            <li>Quelles sont les recommandations de sécurité pour ce produit?</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div id="chat-messages" class="chat-messages"></div>
+            </div>
+            
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <textarea id="chat-input" placeholder="Posez votre question sur le document technique..."></textarea>
+                    <button id="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="chat-input-footer">
+                    <p>SmartDoc Analyzer répond en se basant uniquement sur les documents fournis.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modales -->
+    <div id="loading-modal" class="modal">
+        <div class="modal-content modal-loading">
+            <div class="spinner"></div>
+            <p id="loading-message">Traitement du document en cours...</p>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html> 
