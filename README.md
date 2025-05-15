@@ -1,4 +1,4 @@
-# TechDocBot
+# SmartDoc Analyser
 
 Un chatbot capable d'ingérer des documents techniques (PDF, DOCX, PPTX) et de répondre aux questions de manière précise en utilisant Ollama et Mistral.
 
