@@ -159,7 +159,7 @@ Réponse:\"""
         query_embedding = self.embedding_model.encode(user_message, convert_to_tensor=True)
         
         # Rechercher les chunks pertinents - augmenté pour une analyse plus exhaustive
-        relevant_chunks = search_similar_chunks(json.dumps(query_embedding.tolist()), limit=40)  # Augmenté de 12 à 30
+        relevant_chunks = search_similar_chunks(json.dumps(query_embedding.tolist()), limit=30)  # Augmenté de 12 à 30
         
         # Filtrer par document_id
         relevant_chunks = [chunk for chunk in relevant_chunks if chunk['document_id'] == document_id]
